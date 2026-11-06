@@ -1,0 +1,7 @@
+Generated with the built-in image_gen tool for the personal fork.
+
+Prompt:
+Use case: logo-brand. Asset type: production macOS app icon, one square 1024x1024 image with genuinely transparent background. Create an original charming miniature beige 1980s compact Macintosh Plus-inspired all-in-one computer, mostly frontal with very slight three-quarter perspective showing its right side, large softly rounded CRT screen above a slim floppy disk slot, chunky warm ivory plastic enclosure with subtle molded bevels and a small integrated base. Screen is deep charcoal with a crisp bright mint-green terminal prompt >_ (only these two glyphs). Clean premium macOS application-icon illustration, restrained soft 3D shading, bold readable silhouette at 32px, careful warm highlights, soft small contact shadow within the transparent canvas. Center subject, fill approximately 80 percent of canvas height with generous consistent padding. No external keyboard, no mouse, no cables, no desk, no scenery, no surrounding tile or squircle, no Apple logo, no branding, no words, no watermark. Simple memorable friendly retro computer, understated and polished, not photographic, not grungy.
+
+Regenerate the macOS icon sizes from TerminalMac.png with:
+bash scripts/build-icon.sh

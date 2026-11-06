@@ -51,6 +51,7 @@ make_plist() {
   /usr/libexec/PlistBuddy -c "Add :CFBundleVersion string $build_number" "$destination"
   /usr/libexec/PlistBuddy -c 'Add :LSMinimumSystemVersion string 14.0' "$destination"
   /usr/libexec/PlistBuddy -c 'Add :NSHighResolutionCapable bool true' "$destination"
+  /usr/libexec/PlistBuddy -c 'Add :CFBundleIconFile string TerminalMac.icns' "$destination"
 }
 # The agent skill ships inside the app so `terminal-mac skills get` always matches this build.
 rm -rf "$app/Contents/Resources/skills"
@@ -58,6 +59,9 @@ mkdir -p "$app/Contents/Resources/skills"
 cp -R skills/terminal-mac "$app/Contents/Resources/skills/"
 make_plist "$guest/Contents/Info.plist" dev.terminal-mac.guest TerminalMacGuest
 make_plist "$app/Contents/Info.plist" dev.terminal-mac.host TerminalMac
+cp resources/TerminalMac.icns "$app/Contents/Resources/TerminalMac.icns"
+mkdir -p "$guest/Contents/Resources"
+cp resources/TerminalMac.icns "$guest/Contents/Resources/TerminalMac.icns"
 # Guest has no Virtualization entitlement. Its guarded mode only controls the VM desktop.
 codesign --force --sign "$identity" "${sign_options[@]}" "$guest"
 codesign --force --sign "$identity" "${sign_options[@]}" --entitlements resources/terminal-mac.entitlements "$app"
